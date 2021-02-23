@@ -17,15 +17,13 @@ export default class Count extends Component {
 
 	//eslint-disable-next-line
 	increment = ()=>{
-		//获取原来的sum
-		const {sum} = this.state
-		//更新状态
-		this.setState({sum:sum+1})
-		console.log('@',this.state.sum)
+		//函数式的setState，适用于：新状态依赖于原状态
+		this.setState( state =>({sum:state.sum+1}))
 	}
 
 	//eslint-disable-next-line
 	changeSum = ()=>{
-		//函数体
+		//对象式的setState，适用于：新状态不依赖于原状态
+		this.setState({sum:99})
 	}
 }
